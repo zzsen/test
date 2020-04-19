@@ -1,14 +1,25 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
+import BookIndex from '../views/book/index.vue'
+import BookList from '../views/book/list.vue'
 
 Vue.use(VueRouter)
 
 const routes = [
   {
-    path: '/',
-    name: 'Home',
-    component: Home
+    path: '/book',
+    name: 'Book',
+    component: BookIndex,
+    children: [
+      {
+        path: 'list',
+        name: 'BookList',
+        component: BookList,
+        meta: {
+          title: 'book列表'
+        }
+      }
+    ]
   },
   {
     path: '/about',
