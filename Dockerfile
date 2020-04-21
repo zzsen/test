@@ -1,5 +1,4 @@
-FROM node:8.4
-COPY . /app
-WORKDIR /app
-RUN npm install --registry=https://registry.npm.taobao.org
-EXPOSE 3000
+FROM nginx:1.15.2-alpine
+COPY ./dist /usr/nginx/html
+COPY nginx.conf /etc/nginx/conf.d/default.conf
+EXPOSE 80
